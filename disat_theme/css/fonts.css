@@ -1,0 +1,54 @@
+/* 
+    Inspired by my colleagues over at https://ghb.hs-furtwangen.de/
+*/
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 300;
+    src: url('/fonts/Roboto-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: italic;
+    src: url('/fonts/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 700;
+    src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+    src: url('/fonts/RobotoMono-Regular.ttf') format('truetype');
+}
+
+:root {
+    --md-text-font: 'Roboto';
+    --md-code-font: 'Roboto Mono';
+}
+
+/* Increase font size of admonitions */
+.md-typeset .admonition {
+    font-size: 0.75rem;
+}
+
+/* Adjust font weights */
+.md-typeset h1,
+.md-typeset h2 {
+    font-weight: 400;
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+    font-weight: 300;
+}

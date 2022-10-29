@@ -1,0 +1,93 @@
+site_name: DiscoSat Bible
+site_url: https://discosat-docs.martb.dev
+site_author: DiscoSAT Team
+site_dir: "build"
+
+repo_url: https://git.cs.uni-kl.de/discosat/docs
+edit_uri: blob/main/docs/
+
+copyright: Copyright &copy; 2022 DiscoSat
+
+theme:
+  custom_dir: "disat_theme"
+  language: en
+  name: material
+  font: false
+  #icon:
+  #  logo: disat
+  extra:
+    consent:
+      title: Cookie consent
+      description: >- 
+        We use cookies to recognize your repeated visits and preferences, as well
+        as to measure the effectiveness of our documentation and whether users
+        find what they're searching for. With your consent, you're helping us to
+        make our documentation better.
+
+  # Dark / Light mode toggle
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: grey
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  # Navigation setup
+  features:
+    - navigation.instant     # Enable instant loading, this doesn't reload the page but fetches the contents via AJAX
+    - navigation.tabs        # Enable tab navigation
+    - navigation.tabs.sticky # Navigation tabs will be visible when scrolling
+    - navigation.top         # Enable 'back to top' button
+    - navigation.sections    # Enable nav sections
+
+nav: 
+  - Home: 'index.md'
+  #- Apogee: '!import git@git.cs.uni-kl.de:discosat/apogee.git?branch=main&multi_docs=False'
+  #- SatOS: '!import git@git.cs.uni-kl.de:discosat/satos.git?branch=main&multi_docs=False'
+  - Buildroot:
+    - 'Overview': 'buildroot/index.md'
+    - 'User Guide':
+      - 'Building': 'buildroot/building.md'
+    - 'Developer Guide':
+      - 'Maintenance': 'buildroot/maintenance.md'
+
+# Load extra css
+extra_css:
+  - css/fonts.css
+
+plugins:
+  - search
+  - awesome-pages
+  - multirepo:
+      cleanup: false # set to true when deploying to prod.
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+          remove_comments: true
+
+markdown_extensions:
+  - attr_list            # Support to add HTML attrubutes and CSS classes to markdown elements
+  - admonition           # Admonition support
+  - footnotes            # Footnotes
+  - pymdownx.details     # Collapsible admonitions
+  - pymdownx.superfences # Nesting of code blocks in admonitions
+  - pymdownx.tabbed:     # Content tabs
+      alternate_style: true
+  - pymdownx.emoji:      # Enable emoji and icon support
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg       
+  - toc:
+      permalink: "#"     # Use # as permalink button
+      toc_depth: 3       # Only display 3 layers of toc
