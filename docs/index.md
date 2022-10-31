@@ -4,9 +4,9 @@ It imports the documentations from all subprojects and provides them in one cent
 This is achieved through the use of [mkdocs](https://www.mkdocs.org) and the [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin).
 
 ## Getting started
-Install mkdocs and the required dependencies
+Install all required dependencies
 ```
-pip install mkdocs mkdocs-material mkdocs-awesome-pages-plugin mkdocs-minify-plugin
+pip install -r requirements.txt
 ```
 
 ## Build and serve
@@ -22,9 +22,9 @@ If you want to build a version of the page for remote deployment use `mkdocs bui
 * `mkdocs -h` - Print help message and exit.
 
 ## Project layout
-    mkdocs.yml    # The main configuration file.
-    fonts/        # Local copy of all google fonts
-    css/          # Home of custom stylesheets
+    mkdocs.yml      # The main configuration file.
+    disat_theme/    # Custom theme overrides with extra css and local fonts
     docs/
-        index.md  # This page
-        ...       # Other markdown pages, images and other files.
+        index.md    # This page
+        ...         # Other markdown pages, images and other files.
+    .gitlab-ci.yml  # The gitlab ci runner config for automatic deployment

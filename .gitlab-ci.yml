@@ -1,0 +1,15 @@
+image: python:3.9-bullseye
+
+before_script:
+  - pip install --upgrade pip && pip install -r requirements.txt
+
+pages:
+  stage: deploy
+  script:
+    - mkdocs build
+    - mv build public
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
