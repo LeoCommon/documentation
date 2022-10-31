@@ -4,9 +4,24 @@ site_author: DiscoSAT Team
 site_dir: "build"
 
 repo_url: https://git.cs.uni-kl.de/discosat/docs
+repo_name: DiscoSat Documentation
 edit_uri: blob/main/docs/
 
 copyright: Copyright &copy; 2022 DiscoSat
+
+nav: 
+  - Home:
+    - 'Overview': 'index.md'
+    - 'Tags': 'tags.md'
+  #- Apogee: '!import git@git.cs.uni-kl.de:discosat/apogee.git?branch=main&multi_docs=False'
+  #- SatOS: '!import git@git.cs.uni-kl.de:discosat/satos.git?branch=main&multi_docs=False'
+  - Buildroot:
+    - 'Overview': 'buildroot/index.md'
+    - 'User Guide':
+      - 'Building': 'buildroot/building.md'
+    - 'Developer Guide':
+      - 'Maintenance': 'buildroot/maintenance.md'
+
 
 theme:
   custom_dir: "disat_theme"
@@ -15,14 +30,6 @@ theme:
   font: false
   #icon:
   #  logo: disat
-  extra:
-    consent:
-      title: Cookie consent
-      description: >- 
-        We use cookies to recognize your repeated visits and preferences, as well
-        as to measure the effectiveness of our documentation and whether users
-        find what they're searching for. With your consent, you're helping us to
-        make our documentation better.
 
   # Dark / Light mode toggle
   palette:
@@ -52,17 +59,6 @@ theme:
     - navigation.top         # Enable 'back to top' button
     - navigation.sections    # Enable nav sections
 
-nav: 
-  - Home: 'index.md'
-  #- Apogee: '!import git@git.cs.uni-kl.de:discosat/apogee.git?branch=main&multi_docs=False'
-  #- SatOS: '!import git@git.cs.uni-kl.de:discosat/satos.git?branch=main&multi_docs=False'
-  - Buildroot:
-    - 'Overview': 'buildroot/index.md'
-    - 'User Guide':
-      - 'Building': 'buildroot/building.md'
-    - 'Developer Guide':
-      - 'Maintenance': 'buildroot/maintenance.md'
-
 # Load extra css
 extra_css:
   - css/fonts.css
@@ -76,9 +72,14 @@ plugins:
       minify_html: true
       htmlmin_opts:
           remove_comments: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - tags:
+      tags_file: tags.md
 
 markdown_extensions:
-  - attr_list            # Support to add HTML attrubutes and CSS classes to markdown elements
+  - abbr                 # Support adding an abbreviation list
+  - attr_list            # Support adding HTML attributes and CSS classes 
   - admonition           # Admonition support
   - footnotes            # Footnotes
   - pymdownx.details     # Collapsible admonitions
