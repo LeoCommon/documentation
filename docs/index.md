@@ -1,11 +1,19 @@
 # Welcome to the DiscoSat Bible
 This is the automatic documentation builder for DiscoSAT.
-It imports the documentations from all subprojects and provides them in one central place
+It imports the documentations from all subprojects and provides them in one central place.
 This is achieved through the use of [mkdocs](https://www.mkdocs.org) and the [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin).
 
 ## Getting started
-Install all required dependencies
-```
+??? tip "Usage of virtualenv"
+
+    This guide assumes that the `virtualenv` tool is available on your system.  
+    Please refer to your distribution manual or see [docs.python.org](https://docs.python.org/3/library/venv.html)
+
+```shell
+# Create a new virtual environment
+virtualenv venv && source venv/bin/activate
+
+# Install all the requirements for this project
 pip install -r requirements.txt
 ```
 
