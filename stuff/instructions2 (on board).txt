@@ -1,0 +1,83 @@
+connect HAT.USB_to_UART to Laptop
+open Putty on laptop (Serial-Port: /dev/ttyUSB0, Speed: 115200)
+<power on Pi4>  (login: root, no pw required)
+
+
+GPS:
+- gpsd /dev/ttyUSB1       (start gpsd. should not be neccessary)
+- dbus-monitor --system   (gpsd outputs its satellite data to the system bus)
+- cgps                    (showing gps information every second)
+
+Time:
+- chronyc tracking        (show timing information)
+- chronyc sources         (show timing sources. NMEA = GPS)
+
+LTE:
+- mmcli -L                              (list available modems)
+- mmcli -m 0                            (show basic info about the modem nr 0)
+- mmcli -i 0 --pin="PIN" --disable-pin  (disable the pin in sd-card of modem nr 0)
+
+- nmcli device show
+- nmcli connection show
+- nmcli con up congstar
+- nmcli con down congstar
+
+- ip a
+- ip addr
+- ifconfig
+
+static ethernet
+- prepare network-config on usb-stick
+- mount usb-stick 
+- copy from USB-stick to /etc/NetworkManager/system-connections/
+- chmod 0600 /etc/NetworkManager/system-connections/xxx.nmconnection
+- nmcli con load /etc/NetworkManager/system-connections/xxx.nmconnection
+
+
+Temperature (in milli°C):
+cat /sys/class/thermal/thermal_zone0/temp
+
+OS-version:
+cat /usr/lib/os-release
+
+
+get logs from a service (since the last boot):
+journalctl -u apogee-client.service -b --no-pager
+journalctl -u client.service -f  (live view of the journal)
+journalctl --boot-list  (shows list of available boots in the journal)
+journalctl -f  (liveview of all journals)
+
+
+list all running services: systemctl status
+manage apogee-client.service: 
+	- get status: systemctl status apogee-client.service
+	- start/stop service: systemctl start/stop apogee-client.service
+
+
+run iridium-recording locally:
+- (connect via uart, login: root, pw:-not required-)
+- cd /data/discosat-config/job_files/
+- mkdir test
+- cd test
+- echo $'[osmosdr-source]\nsample_rate=5000000\ncenter_freq=1624000000\nbandwidth=5000000\ngain=14\nif_gain=40\nbb_gain=20' > hackrf.conf
+- cat hackrf.conf (verify everythin is written correct)
+- iridium-extractor -D 4 hackrf.conf > output1.bits
+		("sample rate missing!" means either wrong file-ending or wrong content)
+		("RuntimeError: Faild to create FFTW wisdom lockfile..." first mount in read-write "
+
+
+
+#
+
+
+
+mount -o remount,rw /", then execute iridium-extractor, then mount in read-only "mount -o remount,ro /")
+
+# stop the apogee-deamon (apogee-service)
+systemctl stop client
+
+# start apogee-client in debug mode
+systemctl stop client
+client --debug  (as root)
+su -m apogee -c "client --debug"   (as apogee) 	
+

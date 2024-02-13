@@ -1,0 +1,79 @@
+Hardware:
+< have a Pi4 ready>
+
+SIM7600X 4G HAT:
+- connect GPS & LTE antenna cables at GNSS and MAIN
+- insert sim-card
+- change both UART jumpers to a: USB (cp2102) to Pi
+- connect HAT ontop of Pi4 pins
+- place the 2 small spacers
+- connect HAT.USB to Pi4.USB
+
+
+
+Software:
+- get repositories:
+	git clone https://git.cs.uni-kl.de/discosat/satos.git
+	(enter login + pw)
+	cd satos
+	git submodule update --init --recursive
+	(enter gitlab ssh passphrase)
+	(cd ota)
+	(openssl req -subj "/C=DE/ST=Rheinland Pfalz/L=Kaiserslautern/O=satos-dev/CN=satos-dev" -x509 -sha256 -newkey rsa:4096 -nodes -days 365 -keyout dev-key.pem -out dev-ca.pem)
+- when changing some code:
+	- Place the new code in the folders (e.g. X/src/apogee/...)
+	- remove the folder X/output/build/<name-of-module> (e.g. disco-apogee.0.1)
+	- remove duplicatedlines in fstab: X/output/target/etc/fstab
+- make the image for pi4:
+	unset LD_LIBRARY_PATH
+	make rpi4_64
+- when error occured:
+	make clean
+	(delte buildroot-cache: sudo rm -r ~/.buildroot-ccache/)
+- copy image on sd-card:
+  	./copy_image_on_card.sh
+
+
+
+USB-Stick with configs:
+- get usb-stick with >4GB
+- use the "client_confi_stick" git-repo
+	(follow the README there)
+	adapt the configurations as required 
+	insert login credentials
+	execute the "prepare-stick.sh" script to load the configuration on the stick
+- insert the stick into Pi4
+
+
+
+
+Test local changes (example: apogee):
+- copy new module/code to the appropriate place in the satos folder
+	(e.g.: satos/src/apogee)
+- remove old version of the module from satos/output/build/<module>
+  This ensures that the module is build from scratch, but not the rest of the image stays (saves a lot of time)
+	(e.g.: satos/output/build/disco-apogee-x.y)
+- remove lines from satos/otuput/target/etc/fstab:
+  remove all lines of 
+	/data/system-connections /etc/NetworkManager/system-connections none bind 0 0
+	LABEL=discosat-config /data/discosat-config ext4 defaults,nofail 0 0
+  from the file. They will be added by a script in the end.
+- make the image for pi4:
+	unset LD_LIBRARY_PATH
+	make rpi4_64
+
+
+
+
+Error-Tips:
+Error: #include openssl/evp.h
+host system needs up to date libsll-dev (sudo apt install libsll-dev)
+
+
+
+
+
+
+
+
+
