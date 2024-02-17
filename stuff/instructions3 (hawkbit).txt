@@ -1,0 +1,44 @@
+Requires:
+- newly build satos-image that can be uploaded to hawkbit (satos/release/satos-rpi4-64-dev-20240214-22e978a68e-ota.raucb)
+- access to the Disco-Satupdater (disco-satupdater.cs.rptu.de)
+
+1. create a new update in hawkbit
+	- open "upload management" (via the left side bar)
+	- create new software module (the "+" in the middle window)
+		- Type: OS
+		- Name: SatosRPI4 (for SatOS of a Raspberry Pi 4)
+		- version:
+			1.0.0: base version
+			1.0.3: uses Jason-Web-Tokens for sensor authentication
+			1.0.4: enable remote configurations, reboot, bugfix iridium_sniffing
+			----- planed -----
+			1.1.0: use job-id for identification instead job-name
+			2.0.0: generic remote execution environment, privacy features, chunk-based uploads
+			----- system -----
+			x.y.z: 	x=Major version (big features work stable [definitely break website compatibility]) 
+				y=minor version (parts of a major feature or minor improvements [likely to break website compactability]) 
+				z=roling number (bugfixes, tests of features [should not break website compactability])
+		- vendor: <your name> (z.B. Eric Jedermann)
+		- description: <description from the version>
+	- Upload an artifact for the new software module
+		- drag and drop the new satos-image (or use the upload button) in the lower right window
+		- wait until the upload window pops up and the upload is finished
+	- open "distributions management" (via the left side bar)
+	- create a new distribution for the new satos-version (the "+" in the left-middle window)
+		- Type: OS with app(s)
+		- Name: SatosRPI4 (for SatOS of a Raspberry Pi 4)
+		- version: <same as the software module>
+		- description: <same as the software module>
+	- drag and drop the software module (from the right-middle window) on the distribution (in the left-middle window)
+		- ensure & confirm that you assigned the correct software module to the correct distribution
+
+2. manaully apply a update to a sensor
+	- open "deployment management" (via the left side bar, this is the starting webpage)
+	- drag and drop a distribution (from the middle window) to a sensor (on the left window)
+		- selsct "forced" to directly update the sensor and apply the update
+		- ensure & confirm that you used the correct distribution and sensor
+	- the sensor status changes from a green checkmark to a yellow half-moon
+	- wait until the update is performed (takes a few minutes)
+	- when everything works fine, the sensor status changes back to a green checkmark
+
+
