@@ -14,7 +14,7 @@ deploy:
   stage: deploy
   script:
     - mkdocs build
-    - rsync -atv -e 'ssh -p 2212' --delete --progress ./build/ discosat-docs@ssh.martb.eu:~/public
+    - rsync -atv -e 'ssh -p 2212' --delete --progress ./build/ discosat-docs@ssh.martb.eu:/
   artifacts:
     paths:
     - build
