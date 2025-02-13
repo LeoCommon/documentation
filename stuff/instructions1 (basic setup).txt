@@ -13,7 +13,7 @@ SIM7600X 4G HAT:
 
 Software:
 - get repositories:
-	git clone https://git.cs.uni-kl.de/discosat/satos.git
+	git clone https://github.com/LeoCommon/satos.git
 	(enter login + pw)
 	cd satos
 	git submodule update --init --recursive
@@ -56,7 +56,7 @@ Test local changes (example: apogee):
 - remove lines from satos/otuput/target/etc/fstab:
   remove all lines of 
 	/data/system-connections /etc/NetworkManager/system-connections none bind 0 0
-	LABEL=discosat-config /data/discosat-config ext4 defaults,nofail 0 0
+	LABEL=leocommon-config /data/leocommon-config ext4 defaults,nofail 0 0
   from the file. They will be added by a script in the end.
 - make the image for pi4:
 	unset LD_LIBRARY_PATH

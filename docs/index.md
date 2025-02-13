@@ -1,5 +1,5 @@
-# Welcome to the DiscoSat Bible
-This is the automatic documentation builder for DiscoSAT.
+# Welcome to the LeoCommon Documentation
+This is the automatic documentation builder for LeoCommon.
 It imports the documentations from all subprojects and provides them in one central place.
 This is achieved through the use of [mkdocs](https://www.mkdocs.org) and the [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin).
 

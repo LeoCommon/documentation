@@ -1,0 +1,41 @@
+name: ci 
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: read # No write permissions needed
+  pages: write 
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }} # Retrieved from deploy-pages action
+    steps:
+      - uses: actions/checkout@v4
+        # If full commit history is required
+        # with:
+        #    fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install --upgrade pip && pip install -r requirements.txt
+      - run: mkdocs build --site-dir ./site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3 
+        with:
+          path: 'site/'
+      - uses: actions/deploy-pages@v4
+        id: deployment

@@ -56,7 +56,7 @@ manage apogee-client.service:
 
 run iridium-recording locally:
 - (connect via uart, login: root, pw:-not required-)
-- cd /data/discosat-config/job_files/
+- cd /data/leocommon-config/job_files/
 - mkdir test
 - cd test
 - echo $'[osmosdr-source]\nsample_rate=5000000\ncenter_freq=1624000000\nbandwidth=5000000\ngain=14\nif_gain=40\nbb_gain=20' > hackrf.conf

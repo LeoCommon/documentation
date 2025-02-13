@@ -71,4 +71,4 @@ The following tasks need to be performed manually and are essential to the secur
 The RaspberryPi targets come with custom versions of kernels and firmware that are solely tracked inside the `SATOS` repository.
 
 ???+ note
-    This should provide an outline on how to maintain discosats buildroot fork specific parts of the repository, if unified with SATOS, the maintenance tasks that need to be performed there should also be added to this document.
+    This should provide an outline on how to maintain LeoCommons buildroot fork specific parts of the repository, if unified with SATOS, the maintenance tasks that need to be performed there should also be added to this document.
