@@ -25,12 +25,12 @@ nav:
 
 
 theme:
-  custom_dir: "disat_theme"
+  custom_dir: "leo_theme"
   language: en
   name: material
   font: false
   #icon:
-  #  logo: disat
+  #  logo: leocommon
 
   # Dark / Light mode toggle
   palette:

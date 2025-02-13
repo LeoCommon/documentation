@@ -3,13 +3,18 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "stuff/**"
+
 permissions:
   contents: read # No write permissions needed
   pages: write 
   id-token: write
+
 concurrency:
   group: github-pages
   cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,9 +23,9 @@ jobs:
         url: ${{ steps.deployment.outputs.page_url }} # Retrieved from deploy-pages action
     steps:
       - uses: actions/checkout@v4
-        # If full commit history is required
-        # with:
-        #    fetch-depth: 0
+        # Fix last changed dates
+        with:
+            fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x

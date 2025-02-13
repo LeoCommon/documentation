@@ -31,7 +31,7 @@ If you want to build a version of the page for remote deployment use `mkdocs bui
 
 ## Project layout
     mkdocs.yml      # The main configuration file.
-    disat_theme/    # Custom theme overrides with extra css and local fonts
+    leo_theme/    # Custom theme overrides with extra css and local fonts
     docs/
         index.md    # This page
         ...         # Other markdown pages, images and other files.
