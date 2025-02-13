@@ -59,6 +59,9 @@ theme:
     - navigation.tabs.sticky # Navigation tabs will be visible when scrolling
     - navigation.top         # Enable 'back to top' button
     - navigation.sections    # Enable nav sections
+    - content.action.edit    # Enable Edit This Page Button
+    - content.action.view    # Enable View Source Button
+    - content.code.copy      # Always enable copy code feature
 
 # Load extra css
 extra_css:
