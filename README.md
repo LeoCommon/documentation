@@ -1,4 +1,6 @@
 # LeoCommon Documentation
+To read the LeoCommon documentation follow this link: [https://LeoCommon.github.io/documentation/](https://LeoCommon.github.io/documentation/)<br />
+
 This is the automatic documentation builder for LeoCommon.
 It imports documentation from all sub-projects and provides them in one central instance.
 This is achieved through the use of [mkdocs](https://www.mkdocs.org) and the [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin).
