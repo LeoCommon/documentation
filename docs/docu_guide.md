@@ -1,8 +1,8 @@
-# LeoCommon Documentation
-This is the automatic documentation builder for LeoCommon.
-It imports documentation from all sub-projects and provides them in one central instance.
-This is achieved through the use of [mkdocs](https://www.mkdocs.org) and the [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin).
 
+# Welcome to the LeoCommon Documentation
+This is the automatic documentation builder for LeoCommon.
+It imports the documentations from all subprojects and provides them in one central place.
+This is achieved through the use of [mkdocs](https://www.mkdocs.org) and the [mkdocs-multirepo-plugin](https://github.com/jdoiro3/mkdocs-multirepo-plugin).
 
 ## Getting started
 ??? tip "Usage of virtualenv"
@@ -34,6 +34,6 @@ If you want to build a version of the page for remote deployment use `mkdocs bui
     mkdocs.yml      # The main configuration file.
     leo_theme/    # Custom theme overrides with extra css and local fonts
     docs/
-        index.md    # Main page, to start with.
+        index.md    # This page
         ...         # Other markdown pages, images and other files.
     .gitlab-ci.yml  # The gitlab ci runner config for automatic deployment
