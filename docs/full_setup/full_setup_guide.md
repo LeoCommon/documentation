@@ -12,7 +12,7 @@ You need two servers: one update and one C&C server. We recommend using two dist
 
 ### C&C Server Setup
 
-- Clone the LeoCommon Server Project (TODO: upload) and follow the install instructions in the README of the project. (The following steps are just a summary of the projects README.)
+- Clone the [LeoCommon Server Project](https://github.com/LeoCommon/server)  and follow the install instructions in the README of the project. (The following steps are just a summary of the projects README.)
 - Install the virtual environment and install the python-requirements.
 - Install nginx & certbot.
 - Install screen. (optional)
@@ -55,11 +55,11 @@ TODO
 4. Format the USB-stick in 'ext4' with the name 'leocommon-data' (e.g. via gparted)
 5. Use the `stick_setup.sh` in the repository to automatically create the config stick <br /> **or** do the configuration manually, by following the next steps
 6. Mount the USB-stick and create the following sub-directories on the USB-stick:
-	- `/config/apogee`
+	- `/config/client`
 	- `/config/secrets`
 	- `/config/system-connections`
 7. Copy the modified config files into their target directory on the usb-stick:
-	- copy `config.toml` into the directory `/config/apogee`
+	- copy `config.toml` into the directory `/config/client`
 	- a: copy the `config.hawkbit` into the directory `/config/secrets`<br />
 	  b: inside the directory `/config/secrets` rename the `config.hawkbit` to `.hawkbit`
 	- copy `eth0.nmconnection` into the directory `/config/system-connections`

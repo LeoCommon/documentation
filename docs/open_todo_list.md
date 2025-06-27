@@ -12,5 +12,7 @@
 - Server fronted: rename sensor to ground-station
 - Server backed: rename sensor to ground-station
 - Config-Stick: rename 'sensor name' to 'groundstation name'
+- Server: implement the functionality to add sensors from the job-details page
+- Server: implement the functionality to add sensors directly in the job creation
 
 

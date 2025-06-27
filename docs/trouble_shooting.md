@@ -1,6 +1,7 @@
 # Trouble Shooting
 
 ### Locally connect to the Pi via UART
+- (todo: how to connect wires)
 - Serial-Port: /dev/ttyUSB0 
 - Speed: 115200
 - login: root, no pw required

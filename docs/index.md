@@ -8,6 +8,8 @@ However this simple setup comes with some drawbacks, as no individual updates. F
 
 For a proper setup, with fully independence, it is necessary to compile the ground station operating system by your own. You can do this, following our [full-setup guide](./full_setup/full_setup_guide.md).
 
+To get information how to use the C&C server (schedule jobs), see our [C&C server user guide](./cnc_server/user_guide.md).
+
 For common problems and trouble-shootings, see our [trouble-shooting guide](./trouble_shooting.md).
 
 To get an overview of the security in the LeoCommon System, see our [security guide](./security_guide.md).
