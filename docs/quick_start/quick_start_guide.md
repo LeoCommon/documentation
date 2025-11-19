@@ -53,6 +53,7 @@ You need two servers: one update and one C&C server. We recommend using two dist
 
 1. Get the image. Either get the image from the network operator or download it from our repository:
 	- [image v2025.06.a for Pi5](https://seafile.rlp.net/f/82ba23f852a6421082a5/?dl=1)
+	- [image v2025.11.18 for Pi4](https://seafile.rlp.net/seafhttp/f/701e4467ec1c4c00a7ac/?op=view)
 2. Decompress it. (e.g. `unzstd sdcard_version_device.img.zst`)
 3. Insert the microSD card to a card-reader.
 4. Copy the image onto the microSD card:<br /> (e.g. `sudo dd if=sdcard_version_device.img of=/dev/mmcblk0 bs=4M` + `sync`)

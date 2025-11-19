@@ -41,7 +41,7 @@ You need two servers: one update and one C&C server. We recommend using two dist
 ## Ground Station Software Setup
 
 ### Build & Install OS Image
-TODO
+See [software setup in the quick start guide](https://leocommon.github.io/documentation/quick_start/quick_start_guide/#ground-station-software-setup).
 
 ### Install the Config USB-Stick
 
